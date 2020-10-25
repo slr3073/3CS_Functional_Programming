@@ -1,0 +1,7 @@
+.idea
+*.iml
+*.pdf
+out
+gen
+
+
