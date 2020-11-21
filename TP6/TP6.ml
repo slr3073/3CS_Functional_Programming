@@ -295,11 +295,58 @@ melange([1;2;3],["oui";"non";"lol"]);;
 melange([1;2;3],["oui";"non"]);;
 (* - : (int * string) list = [1, "oui"; 2, "non"] *)
 
+(* ---------------------------------------------------------- *)
 
 (* 5 - Suite de Fibonacci  *)
 
 (* 6 - Fusion de listes croissantes  *)
 
+(* Retourne si une liste est croissante *)
+(* estCroissante : 'a list -> bool = <fun> *)
+let rec estCroissante = fun
+  (a::b::l) -> a <= b & estCroissante(b::l)
+  | _ -> true;;
+
+(* Tests *)
+estCroissante([1;2;3]);;
+(* - : bool = true *)
+estCroissante([3;2;8]);;
+(* - : bool = false *)
+
+
+(* Tests *)
+fusion([9;10],[1;2;3;4;5]);;
+
 (* 7 - Nombres premiers par le crible d’Ératosthène *)
+
+(* Retourne la liste des entiers de 2 à n *)
+(* generer : int -> int list = <fun> *)
+let rec generer = fun
+  2 -> [2]
+  | n -> generer(n-1)@[n];;
+
+(* Tests *)
+generer(6);;
+(* - : int list = [2; 3; 4; 5; 6] *)
+generer(4);;
+(* - : int list = [2; 3; 4] *)
+
+(* Retourne la liste des non multiples de a *)
+(* eliminer : int * int list -> int list = <fun> *)
+let rec eliminer = fun
+  (a,b::l) ->
+    if(b mod a = 0)then
+      eliminer(a,l)
+    else
+      b::eliminer(a,l)
+  | (_,[]) -> [];;
+  
+
+(* Tests *)
+eliminer(2,[4;5;6;9]);;
+(* - : int list = [5; 9] *)
+
+
+
 
 (* 8 - Représentation des ensembles par des listes *)
