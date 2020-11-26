@@ -17,7 +17,7 @@ deuxieme([1;2;3]);;
 
 (* Retourne si une liste à au moins 3 éléments *)
 (* auMoinsTrois : 'a list -> bool = <fun> *)
-let auMoinsTrois = fun 
+let auMoinsTrois = fun
   (_::_::_::_) -> true
   | _ -> false;;
 
