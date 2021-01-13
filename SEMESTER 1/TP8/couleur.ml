@@ -3,7 +3,7 @@
 (*       module pour faire afficher des peintures        *)
 (*********************************************************)
 #open "graphics" ;;
-
+(* test *)
 (* Fait apparaitre la fen?tre graphique d?coup?e en bandes
    verticales color?es. Les couleurs sont donn?es par une
    liste de triplets (les composantes RVB). L'appui sur 
