@@ -3,5 +3,5 @@
 *.pdf
 out
 gen
-
+.vscode
 
