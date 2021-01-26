@@ -96,13 +96,7 @@ prefixe_reste (w, ['a' ;'b' ;'b' ;'b' ;'a']);;
 prefixe_reste (w, ['a' ;'b']);;
 (* Exception: Erreur. *)
 
-let rec est_puiss ((v: 'a list), (w: 'a list)) = match (v,w) with
-    (_, _::_) -> 
-        try (est_puiss (v, (prefixe_reste (v, w))))
-        with Erreur -> print_string "test"
-    | _ -> true;;
-
-
+let rec est_puiss ((v: 'a list), (w: 'a list)) = match (v,w) with ;;
 (* Tests *)
 est_puiss (w , ['a' ;'b' ;'b' ;'a' ;'a']);;
 est_puiss (w, puissance w 3);;

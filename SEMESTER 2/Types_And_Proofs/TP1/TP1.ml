@@ -261,3 +261,12 @@ let m0 = (difference_m m1 m2);;
 (* 1.3. Par un couple *)
 
 (* 2. Ordre sur les multi-ensembles. *)
+
+let rec listmap (f: 'a -> 'b) (li: 'a list) = match li with
+    a::l -> (f a)::(listmap f l)
+    | _ -> [];;
+
+listmap (function x->x+2) [1;2;3];;
+listmap (function x-> [x]) [1;2;3];;
+
+let comp (f1:'b -> 'c) (f2:'a -> 'b) (x:'a) = f1(f2 x);;
