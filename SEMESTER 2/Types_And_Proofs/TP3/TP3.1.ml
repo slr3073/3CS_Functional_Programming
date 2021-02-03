@@ -59,3 +59,21 @@ ackermann (3,3);;
 (* 2.2. Ordre lexicographique *)
 (* 2.3. Multiensembles *)
 (* Exercice d’Application *)
+
+type 'a arbre_bin = 
+    Feuille of 'a
+    | Noeud of 'a * 'a arbre_bin * 'a arbre_bin;;
+
+(* Echange partout les sous-arbres *)
+(* val echanger : 'a arbre_bin -> 'a arbre_bin = <fun> *)
+let rec echanger (arbre: 'a arbre_bin) = match arbre with
+    (Feuille x) -> (Feuille x)
+    | (Noeud (x, a1, a2)) -> (Noeud (x, (echanger a2), (echanger a1)));;
+
+(* Tests *)
+echanger (Noeud(1, Feuille 2, Noeud(3, Feuille 4, Feuille 5)));;
+(* - : int arbre_bin = Noeud (1, Noeud (3, Feuille 5, Feuille 4), Feuille 2) *)
+
+
+
+

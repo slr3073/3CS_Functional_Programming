@@ -96,9 +96,16 @@ prefixe_reste (w, ['a' ;'b' ;'b' ;'b' ;'a']);;
 prefixe_reste (w, ['a' ;'b']);;
 (* Exception: Erreur. *)
 
-let rec est_puiss ((v: 'a list), (w: 'a list)) = match (v,w) with ;;
+(* Retourne si un mot est une puissance d'un autre mot *)
+(* val est_puiss : 'a list * 'a list -> bool = <fun> *)
+let rec est_puiss ((m1: 'a list), (m2: 'a list)) = match m1 with
+    [] -> true
+    | l ->
+        try est_puiss(prefixe_reste(m1, l), m2) with
+            Erreur -> false
+            | _ -> false ;;
 (* Tests *)
-est_puiss (w , ['a' ;'b' ;'b' ;'a' ;'a']);;
+est_puiss (w , ['a' ;'b' ;'b' ;'a' ;'a';]);;
 est_puiss (w, puissance w 3);;
 
 (* 4 [F] - Mots conjugués, préfixe, le retour des héros *)
